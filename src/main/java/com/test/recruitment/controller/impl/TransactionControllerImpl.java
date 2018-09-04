@@ -44,4 +44,13 @@ public class TransactionControllerImpl implements TransactionController {
 		}
 		return ResponseEntity.ok().body(page);
 	}
+
+    @Override
+	// ToDo security @PreAuthorize("hasRole('ROLE_ADMIN')") after Spring Security(for example) initialization
+    public ResponseEntity<Void> delete(@PathVariable("accountId") String accountId,
+                                       @PathVariable("transactionId") String transactionId) {
+        transactionService.deleteById(accountId, transactionId);
+
+        return ResponseEntity.noContent().build();
+    }
 }

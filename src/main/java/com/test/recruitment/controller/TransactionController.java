@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,4 +34,15 @@ public interface TransactionController {
 	ResponseEntity<Page<TransactionResponse>> getTransactionsByAccount(
 			@PathVariable("accountId") String accountId,
 			@PageableDefault Pageable p);
+
+	/**
+	 * Delete {@link com.test.recruitment.entity.Transaction} with provided id
+	 *
+	 * @param accountId     account id of transaction
+	 * @param transactionId the transaction id
+	 * @return empty body with NO_CONTENT(204) status code
+	 */
+	@DeleteMapping(value = "/{transactionId}")
+	ResponseEntity<Void> delete(@PathVariable("accountId") String accountId,
+								@PathVariable("transactionId") String transactionId);
 }

@@ -33,4 +33,11 @@ public interface TransactionRepository {
 	 * @return
 	 */
 	Page<Transaction> getTransactionsByAccount(String accountId, Pageable p);
+
+	/**
+	 * Delete transaction by provided id
+	 *
+	 * @param transactionId the transaction id
+	 */
+	void deleteById(String transactionId);
 }

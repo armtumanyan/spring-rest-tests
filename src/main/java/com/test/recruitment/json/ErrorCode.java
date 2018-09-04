@@ -16,7 +16,8 @@ public enum ErrorCode {
 
 	NOT_FOUND_ACCOUNT(HttpStatus.NOT_FOUND),
 	NOT_FOUND_TRANSACTION(HttpStatus.NOT_FOUND),
-	FORBIDDEN_TRANSACTION(HttpStatus.FORBIDDEN);
+	FORBIDDEN_TRANSACTION(HttpStatus.FORBIDDEN),
+	INVALID_PARAMETERS(HttpStatus.BAD_REQUEST);
 
 	@Getter
 	private HttpStatus httpStatus;
