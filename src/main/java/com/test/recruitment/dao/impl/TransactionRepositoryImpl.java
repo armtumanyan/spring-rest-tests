@@ -65,9 +65,18 @@ public class TransactionRepositoryImpl implements TransactionRepository,
 	@Override
 	public Page<Transaction> getTransactionsByAccount(String accountId,
 			Pageable p) {
-		return new PageImpl<Transaction>(transactions.stream()
+		return new PageImpl<>(transactions.stream()
 				.filter(t -> t.getAccountId().equals(accountId))
 				.collect(Collectors.toList()));
 	}
 
+	@Override
+	public void deleteById(String transactionId) {
+		transactions.removeIf(transaction -> transaction.getId().equals(transactionId));
+	}
+
+	@Override
+	public void addTransactionIntoAccount(Transaction transaction) {
+		transactions.add(transaction);
+	}
 }

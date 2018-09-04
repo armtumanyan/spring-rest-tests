@@ -3,12 +3,11 @@ package com.test.recruitment.service;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.test.recruitment.json.ErrorResponse;
 import com.test.recruitment.exception.ServiceException;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * Exception handler
@@ -17,7 +16,7 @@ import com.test.recruitment.exception.ServiceException;
  *
  */
 @Slf4j
-@ControllerAdvice
+@RestControllerAdvice
 public class ExceptionHandlerService {
 
 	/**
@@ -28,7 +27,6 @@ public class ExceptionHandlerService {
 	 * @return error response
 	 */
 	@ExceptionHandler(ServiceException.class)
-	@ResponseBody
 	public ResponseEntity<ErrorResponse> handleServiceException(
 			ServiceException e) {
 		log.error("Error : " + e.getMessage());

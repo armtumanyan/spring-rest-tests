@@ -7,7 +7,7 @@ import com.test.recruitment.entity.Transaction;
 
 /**
  * Transaction repository
- * 
+ *
  * @author A525125
  *
  */
@@ -33,4 +33,18 @@ public interface TransactionRepository {
 	 * @return
 	 */
 	Page<Transaction> getTransactionsByAccount(String accountId, Pageable p);
+
+	/**
+	 * Delete transaction by provided id
+	 *
+	 * @param transactionId the transaction id
+	 */
+	void deleteById(String transactionId);
+
+    /**
+     * Add new transaction into account
+     *
+     * @param transaction {@link Transaction}
+     */
+    void addTransactionIntoAccount(Transaction transaction);
 }

@@ -13,6 +13,8 @@
 	<properties>
 		<swagger-version>1.5.7</swagger-version>
 		<java-version>1.8</java-version>
+
+		<testng.version>6.14.3</testng.version>
 	</properties>
 
 	<dependencies>
@@ -45,6 +47,14 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Test NG -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
 			<scope>test</scope>
 		</dependency>
 
