@@ -11,6 +11,7 @@ import java.io.StringWriter;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.springframework.http.MediaType;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Account test
@@ -21,6 +22,7 @@ import org.springframework.http.MediaType;
 public class AdminTransactionTest extends AbstractTest {
 
 	@Test
+	@Transactional
 	public void createTransaction() throws Exception {
 		String request = getRequest("createOk");
 
@@ -81,6 +83,7 @@ public class AdminTransactionTest extends AbstractTest {
 	}
 
 	@Test
+	@Transactional
 	public void deleteTransaction() throws Exception {
 		mockMvc.perform(delete("/accounts/1/transactions/1")).andExpect(
 				status().isNoContent());

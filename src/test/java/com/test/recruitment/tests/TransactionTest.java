@@ -36,4 +36,11 @@ public class TransactionTest extends AbstractTest {
 				.andExpect(status().isNotFound())
 				.andExpect(jsonPath("$.errorCode", is("NOT_FOUND_ACCOUNT")));
 	}
+
+    @Test
+    public void getTransactionsWithPaging() throws Exception {
+        mockMvc.perform(get("/accounts/1/transactions?size=2"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.totalElements", is(2)));
+    }
 }

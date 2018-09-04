@@ -2,6 +2,15 @@ spring:
   application:
     name: recruitment
 
+  datasource:
+    url: jdbc:hsqldb:mem:testdb;sql.syntax_pgs=true
+    username: sa
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
 server:
   port: 8080
   context-path: /api

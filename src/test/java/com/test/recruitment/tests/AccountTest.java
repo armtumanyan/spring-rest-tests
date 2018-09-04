@@ -37,4 +37,10 @@ public class AccountTest extends AbstractTest {
 				.andExpect(jsonPath("$.errorCode", is("NOT_FOUND_ACCOUNT")));
 	}
 
+	@Test
+	public void getAccountsWithPaging() throws Exception {
+		mockMvc.perform(get("/accounts?size=1")).andExpect(status().isOk())
+				.andExpect(jsonPath("$.totalElements", is(1)));
+	}
+
 }
